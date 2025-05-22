@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>著作権NFT -RWAがもたらす新たなファンエコノミー インフォグラフィック</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices:
+        - Hero/Title: Goal: Inform. Standard text, styled. Method: HTML/CSS.
+        - NFT Basics (Section 1):
+            - Definition/Properties: Goal: Inform. Styled HTML text. Method: HTML/CSS.
+            - Shift to Utility: Goal: Explain. HTML/CSS comparison. Method: HTML/CSS.
+        - Market Dynamics (Section 2):
+            - Transaction Volume (Bar Chart): Goal: Show Change, Compare. Viz: Bar Chart. Library: Chart.js. Data from slides (2021:230, 2022:247, 2023:118, 2024:137, 2025Q1:15, in B USD). Labels: Years. Values: Transaction volumes. Tooltip config: Yes. Label wrapping: Not needed for year labels. Justification: Clear visual for time-series comparison.
+            - Keywords/Trends: Goal: Inform. Text annotations. Method: HTML/CSS.
+        - Copyright NFT Core (Section 3):
+            - UTOPIA Case Study: Goal: Inform, Organize. Structured HTML cards. Method: HTML/CSS (Tailwind). Justification: Clear presentation of case details.
+            - Mechanism Flowchart (4 steps): Goal: Organize, Explain. Viz: HTML/CSS diagram using Tailwind for layout (boxes, arrows implied by flow or simple borders). Method: HTML/CSS. Justification: Visualizes process steps without complex graphics.
+        - Ecosystem Impact (Section 4):
+            - Stakeholder Benefits: Goal: Compare, Inform. 3-column layout with Unicode icons (🎨, 👥, 💰). Method: HTML/CSS (Tailwind Grid/Flex). Justification: Easy comparison of benefits.
+            - Comparison (vs. Prod. Committee): Goal: Compare, Inform. Side-by-side cards. Method: HTML/CSS. Justification: Highlights differences effectively.
+        - Use Cases (Section 5):
+            - Table of Use Cases: Goal: Inform, Organize. Styled HTML table. Method: HTML/CSS (Tailwind). Justification: Efficiently presents structured categorical data.
+        - Keys & Future (Section 6):
+            - Common Points: Goal: Organize, Inform. Numbered list. Method: HTML/CSS.
+            - Conclusion: Goal: Inform. Emphasized text. Method: HTML/CSS.
+        CONFIRMING NO SVG/Mermaid. All diagrams are HTML/CSS based. Chart.js tooltip and label wrapping rules followed.
+    -->
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif; /* Japanese font */
+            background-color: #F0F8FF; /* AliceBlue - Light background */
+            color: #1E293B; /* Slate-800 - Main text color */
+        }
+        .section-title {
+            border-bottom: 3px solid #2563EB; /* Blue-600 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem; /* Reduced from 1.5rem */
+            color: #1E40AF; /* Blue-800 for darker title */
+        }
+        .card {
+            background-color: #FFFFFF; /* White */
+            border-radius: 0.75rem; /* More rounded */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            padding: 1.25rem; /* Reduced from 1.5rem */
+            margin-bottom: 1rem; /* Reduced from 1.5rem */
+        }
+        .accent-text {
+            color: #2563EB; /* Blue-600 */
+        }
+        .highlight-text {
+            color: #F59E0B; /* Amber-500 */
+            font-weight: bold;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Reduced from 350px */
+            max-height: 350px; /* Reduced from 400px */
+            padding: 0.75rem; /* Reduced from 1rem */
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px; /* Reduced from 400px */
+                max-height: 400px; /* Reduced from 450px */
+            }
+        }
+        th {
+            background-color: #DBEAFE; /* Blue-200 for table header */
+            color: #1E40AF; /* Blue-800 */
+            padding: 0.6rem; /* Reduced from 0.75rem */
+            text-align: left;
+        }
+        td {
+            padding: 0.6rem; /* Reduced from 0.75rem */
+            border-bottom: 1px solid #E5E7EB; /* Gray-200 */
+        }
+        .flowchart-step {
+            border: 2px solid #2563EB; /* Blue-600 */
+            padding: 0.8rem; /* Reduced from 1rem */
+            border-radius: 0.5rem;
+            text-align: center;
+            background-color: #EFF6FF; /* Blue-100 */
+        }
+        .flowchart-arrow {
+            font-size: 1.8rem; /* Reduced from 2rem */
+            color: #2563EB; /* Blue-600 */
+            margin: 0.3rem 0; /* Reduced from 0.5rem */
+            text-align: center;
+        }
+         .hero-section {
+            background: linear-gradient(to right, #3B82F6, #2563EB); /* Blue-500 to Blue-600 */
+            color: white;
+            padding: 2rem 1.5rem; /* Reduced from 3rem */
+            text-align: center;
+        }
+        .section { /* Added a class for sections to apply common margin */
+            margin-bottom: 3rem; /* Reduced from mb-16 (4rem) */
+        }
+        .main-container { /* Added a class for the main content container */
+            padding-top: 2rem; /* Reduced from py-12 (3rem) */
+            padding-bottom: 2rem; /* Reduced from py-12 (3rem) */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased">
+
+    <div class="hero-section">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3">著作権NFT</h1> <h2 class="text-2xl md:text-3xl mb-1">RWAがもたらす新たなファンエコノミー</h2> <p class="text-lg md:text-xl mb-4">～著作権・商標権のトークン化事例から紐解く～</p> <p class="text-md">2025年5月22日 | プレゼンター: Yu Numazaki</p>
+    </div>
+
+    <div class="container mx-auto px-4 md:px-6 main-container"> <section id="nft-basics" class="section"> <h2 class="text-3xl font-bold section-title">1. NFTの基礎と進化</h2>
+            <p class="text-lg mb-4 text-gray-700">このセクションでは、NFT（非代替性トークン）の基本的な概念とその進化について解説します。NFTがどのようにしてデジタルアセットに唯一無二の価値を付与するのか、そして従来のデジタルデータから「権利の証明」へとその役割がどう拡張されてきたのかを見ていきましょう。</p> <div class="grid md:grid-cols-2 gap-4"> <div class="card">
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">NFTとは？</h3>
+                    <p class="mb-2">NFT（Non-Fungible Token）は、ブロックチェーン上で発行される「替えの利かないトークン」です。</p>
+                    <p class="mb-2">ビットコインなどの暗号資産（Fungible Token）が“コイン型”なのに対し、NFTは一枚一枚シリアルナンバー付きの<span class="highlight-text">限定カード</span>に例えられます。</p>
+                    <h4 class="text-lg font-semibold mt-3 mb-1 accent-text">主な特性：</h4> <ul class="list-disc list-inside space-y-0.5"> <li><strong class="text-blue-700">唯一性：</strong>各トークンが固有の識別子を持つ。</li>
+                        <li><strong class="text-blue-700">真正性：</strong>ブロックチェーンにより制作者や所有権が証明可能。</li>
+                        <li><strong class="text-blue-700">取引履歴の永久保存：</strong>全ての取引が追跡可能。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-3 accent-text">NFTの進化：アートから権利へ</h3>
+                    <p class="mb-2">2021年のNFTブームでは、デジタルアートの所有証明としての側面が注目されました。しかし、「画像や動画は容易に複製可能」という批判も存在しました。</p>
+                    <p class="mb-2">ここから、NFTは単に「デジタルデータを売る仕組み」ではなく、<strong class="highlight-text">「固有の権利を誰でも検証できる形で登録する仕組み」</strong>としての真価を発揮し始めます。</p>
+                    <p class="mt-3">今日の主役は、この進化した<span class="font-bold text-blue-700">“権利をNFT化する”</span>という考え方であり、これがクリエイターエコノミーを新たなステージへと導きます。</p> </div>
+            </div>
+        </section>
+
+        <section id="market-dynamics" class="section"> <h2 class="text-3xl font-bold section-title">2. NFT市場のダイナミクス</h2>
+            <p class="text-lg mb-4 text-gray-700">過去5年間のNFT市場の変遷を概観します。下のグラフは各年の取引量を示しており、市場の成長と調整の波を視覚的に捉えることができます。各年の主要な出来事やトレンドも合わせて確認し、NFT市場のダイナミックな動きを理解しましょう。</p> <div class="chart-container mb-4"> <canvas id="nftMarketChart"></canvas>
+            </div>
+            <p class="text-center text-sm text-gray-600 mb-6">NFT市場 取引量推移 (単位: 億米ドル)</p> <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"> <div class="card">
+                    <h4 class="text-xl font-semibold mb-1 highlight-text">2021年: NFT元年の熱狂</h4> <p class="text-base">取引量: 約230億ドル。CryptoPunks、BAYCが高騰。Beeple作品が歴史的高値で落札。PFPブームが市場を席巻。</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-1 highlight-text">2022年: PFPピークと大手参入</h4> <p class="text-base">取引量: 約247億ドル。Yuga Labsによる大型買収、Othersideメタバースの土地NFTが話題に。一方で市場は調整局面（暗号冬）へ。アディダスやナイキなど大手企業が参入開始。</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-1 highlight-text">2023年: ユーティリティNFT台頭</h4> <p class="text-base">取引量: 約118億ドル。BlurがOpenSeaの取引高を逆転、手数料競争が激化。Bitcoin Ordinalsが登場し新たな動き。ロイヤリティ無償化の傾向も。</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-1 highlight-text">2024年: 底固めと実需探索</h4> <p class="text-base">取引量: 約137億ドル。Pudgy Penguinsがトップを維持、ゲーム関連NFTが取引件数を主導。NFTチケットやRWA（実世界資産）のトークン化が試行期に。</p>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-1 highlight-text">2025年 Q1: 逆風下の健闘</h4> <p class="text-base">取引量: 約15億ドル (Q1時点)。Pudgy Penguins、Doodles、Miladyなどが市場の逆風の中でも健闘。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="copyright-nft-core" class="section"> <h2 class="text-3xl font-bold section-title">3. 著作権NFTの核心</h2>
+            <p class="text-lg mb-4 text-gray-700">著作権NFTが具体的にどのように機能し、どのような価値を提供するのかを深掘りします。先進的な事例である「UTOPIA」プロジェクトを通じてその可能性を探り、著作権NFTの基本的な仕組みを解説します。</p> <div class="card mb-8"> <h3 class="text-2xl font-semibold mb-3 accent-text">事例：著作権NFTプロジェクト「UTOPIA」</h3> <p class="mb-1">「UTOPIA」は、人気NFTコレクション<strong class="highlight-text">「NEO TOKYO PUNKS」</strong>が制作予定の縦型ショートアニメに関するプロジェクトです。</p> <p class="mb-1">このプロジェクトでは、アニメの<strong class="text-blue-700">制作著作権が分割され、NFTとして販売</strong>されました。</p> <h4 class="text-lg font-semibold mt-3 mb-1 accent-text">UTOPIA NFT保有者の特徴：</h4> <ul class="list-disc list-inside space-y-0.5 mb-3"> <li>アニメの制作過程（例：キャラクターデザイン、ストーリー展開）に<strong class="text-blue-700">参加できる</strong>。</li>
+                    <li>アニメが生み出す収益から、保有割合に応じた<strong class="text-blue-700">ロイヤリティ分配</strong>を受け取る権利を持つ。</li>
+                </ul>
+                <p class="text-base"><strong class="highlight-text">NEO TOKYO PUNKS</strong>は、2022年3月に発売され、わずか2分で完売した日本発の伝説的なPFPコレクションであり、その後も第二弾「ROARS」、第三弾「UTOPIA」と継続的に展開し、コミュニティ活動も活発です。</p>
+            </div>
+
+            <h3 class="text-2xl font-semibold mb-4 accent-text text-center">著作権NFTの仕組み：4つのステップ</h3> <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 items-start"> <div class="flowchart-step">
+                    <div class="text-3xl mb-1">1️⃣</div> <h4 class="text-lg font-semibold mb-0.5">権利の細分化</h4> <p class="text-sm">アニメ化権、マンガ化権、ゲーム化権などを個別の権利として細かく分割。</p>
+                </div>
+                <div class="lg:mt-12 flowchart-arrow hidden lg:block">➔</div> <div class="flowchart-step">
+                    <div class="text-3xl mb-1">2️⃣</div> <h4 class="text-lg font-semibold mb-0.5">NFT化と販売</h4> <p class="text-sm">分割した権利をNFT化し、小口（例: 0.1%単位）でグローバルに販売。ファンや小口投資家も参加可能に。</p>
+                </div>
+                <div class="lg:mt-12 flowchart-arrow hidden lg:block">➔</div> <div class="flowchart-step">
+                     <div class="text-3xl mb-1">3️⃣</div> <h4 class="text-lg font-semibold mb-0.5">スマートコントラクト</h4> <p class="text-sm">収益発生時にロイヤリティを自動計算・分配。契約条件（例: ERC721copyright）もブロックチェーン上で管理。</p>
+                </div>
+                <div class="lg:mt-12 flowchart-arrow hidden lg:block">➔</div> <div class="flowchart-step">
+                    <div class="text-3xl mb-1">4️⃣</div> <h4 class="text-lg font-semibold mb-0.5">コミュニティ主導制作</h4> <p class="text-sm">Discordでの議論やSnapshot投票を通じ、NFT保有者が制作プロセスに積極的に関与。</p>
+                </div>
+            </div>
+            <div class="card mt-6 text-center"> <p class="text-xl font-semibold"><span class="highlight-text">イノベーションポイント：</span>従来の「出資＝委員会の椅子」というクローズドな形から、<strong class="text-blue-700">「出資＝NFT保有による権利獲得と参加」</strong>へと転換し、より開かれた共創モデルを実現します。</p>
+            </div>
+        </section>
+
+        <section id="ecosystem-impact" class="section"> <h2 class="text-3xl font-bold section-title">4. エコシステムへの影響</h2>
+            <p class="text-lg mb-4 text-gray-700">著作権NFTは、クリエイター、ファン、投資家といったコンテンツエコシステムの各プレイヤーに新たなメリットをもたらします。また、従来のコンテンツ制作資金調達モデルである製作委員会方式との比較を通じて、その革新性を明らかにします。</p> <h3 class="text-2xl font-semibold mb-4 accent-text text-center">各プレイヤーへの恩恵</h3> <div class="grid md:grid-cols-3 gap-4 mb-8"> <div class="card text-center">
+                    <div class="text-4xl mb-2">🎨</div> <h4 class="text-xl font-semibold mb-1">クリエイター</h4> <ul class="list-none space-y-0.5 text-left text-base"> <li>✅ 既存IPに依存せず、新規オリジナル企画を立ち上げやすく。</li>
+                        <li>✅ ファンを「共犯者」として巻き込み、共に作品を育てる拡張が可能に。</li>
+                        <li>✅ 権利の一部を保持しつつ、初期開発資金を調達。</li>
+                    </ul>
+                </div>
+                <div class="card text-center">
+                    <div class="text-4xl mb-2">👥</div> <h4 class="text-xl font-semibold mb-1">ユーザー/ファン</h4> <ul class="list-none space-y-0.5 text-left text-base"> <li>✅ 好きな作品の制作過程に深く関与（投票、意見提案など）。</li>
+                        <li>✅ 作品ヒット時には、収益分配（USDCなど）の可能性。</li>
+                        <li>✅ 応援の熱量を「時間」だけでなく「資本」でも示せる新しい形。</li>
+                    </ul>
+                </div>
+                <div class="card text-center">
+                     <div class="text-4xl mb-2">💰</div> <h4 class="text-xl font-semibold mb-1">投資家・VC</h4> <ul class="list-none space-y-0.5 text-left text-base"> <li>✅ エンタメ分野の投資における流動性の低さを改善。</li>
+                        <li>✅ NFTは二次市場での取引が可能で、オンチェーン価格も参照可能。</li>
+                        <li>✅ ブロックチェーン上の資産として管理が容易で、Exit戦略も多様化。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-semibold mb-4 accent-text text-center">既存モデルとの比較：製作委員会方式</h3> <div class="grid md:grid-cols-2 gap-6"> <div class="card">
+                    <h4 class="text-xl font-semibold mb-2">製作委員会方式</h4> <p class="mb-1 text-base">出版社、テレビ局、広告代理店などが共同出資しリスクとリターンを分配。</p> <p class="text-base"><strong class="text-green-600">メリット：</strong>大規模資金調達、放送枠確保の容易さ。</p>
+                    <p class="text-base"><strong class="text-red-600">デメリット：</strong></p>
+                    <ul class="list-disc list-inside ml-4 text-base">
+                        <li>クリエイターの自由度が低下しやすい。</li>
+                        <li>原作者・制作会社へのロイヤリティが少ない傾向。</li>
+                        <li>海外展開時の収益分配が不透明な場合も。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 class="text-xl font-semibold mb-2">著作権NFTがもたらす変化</h4> <p class="mb-1 text-base">SNSやグローバル配信プラットフォームの普及、AI制作ツールの進化など、コンテンツ制作・配信の環境は大きく変化しました。</p> <p class="mb-1 text-base">しかし、資金調達と権利分配の仕組みは長年旧態依然としており、これが現場の課題でした。</p> <p class="font-semibold mt-2 text-base"><span class="highlight-text">著作権NFT</span>は、この課題に対し、クリエイターが主導権を握り、ファンと直接繋がり、透明性の高い資金調達と収益分配を実現する<strong class="text-blue-700">新しい選択肢</strong>を提示します。</p> </div>
+            </div>
+        </section>
+
+        <section id="use-cases" class="section"> <h2 class="text-3xl font-bold section-title">5. 広がる活用事例</h2>
+            <p class="text-lg mb-4 text-gray-700">著作権NFTの応用範囲はアニメやマンガに留まりません。音楽、小説、ゲーム、映画から教育コンテンツ、デザイン素材に至るまで、多様なジャンルでの活用が期待されています。以下の表は、その具体的な可能性を示しています。</p> <div class="overflow-x-auto card">
+                <table class="min-w-full text-base"> <thead>
+                        <tr>
+                            <th>ジャンル</th>
+                            <th>分割しやすい権利例</th>
+                            <th>NFT保有者の特典/リターン例</th>
+                            <th>想定メリット</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>マンガ</td>
+                            <td>電子配信権、翻訳出版権</td>
+                            <td>巻末クレジット掲載、海外版売上収益分配</td>
+                            <td>迅速な海外展開、ファン参加型翻訳</td>
+                        </tr>
+                        <tr>
+                            <td>楽曲(音楽)</td>
+                            <td>録音権(マスター)、ライブ配信権</td>
+                            <td>限定Remix投票権、ストリーミング収益分配</td>
+                            <td>ファン主導での楽曲権利確保・活用</td>
+                        </tr>
+                        <tr>
+                            <td>インディーゲーム</td>
+                            <td>DLC開発権、キャラクター使用権</td>
+                            <td>テスター枠、DLC内容決定投票、売上分配</td>
+                            <td>コミュニティからの直接的な開発資金調達</td>
+                        </tr>
+                        <tr>
+                            <td>映画(実写)</td>
+                            <td>配信ライセンス権、関連グッズ化権</td>
+                            <td>エンドロール掲載、プレミア試写会招待</td>
+                            <td>独立系映画の資金調達とPRの一体化</td>
+                        </tr>
+                        <tr>
+                            <td>教育コンテンツ</td>
+                            <td>講義動画再配信権、教材改変権</td>
+                            <td>シラバス改訂投票、受講料収益分配</td>
+                            <td>専門家と学習者コミュニティによる共同講座運営</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="keys-future" class="section"> <h2 class="text-3xl font-bold section-title">6. 実現のための鍵と未来展望</h2>
+            <p class="text-lg mb-4 text-gray-700">著作権NFTを成功させるためには、いくつかの重要なポイントがあります。これらを抑えることで、クリエイターとファンが共に価値を創造する新しいエコシステムの実現が近づきます。最後に、著作権NFTが切り拓く未来のファンエコノミーについて展望します。</p> <div class="card mb-6"> <h3 class="text-2xl font-semibold mb-3 accent-text">著作権NFT活用時の共通ポイント</h3> <ol class="list-decimal list-inside space-y-2 text-lg"> <li><strong class="text-blue-700">権利の明確な切り分け：</strong> 既存の著作権法に基づき、NFTと権利内容を一対一で明確に紐付ける。</li>
+                    <li><strong class="text-blue-700">スマートコントラクトによる自動執行：</strong> 売上や収益が発生した際の分配を自動化し、透明性とトレーサビリティを確保。</li>
+                    <li><strong class="text-blue-700">ファン参加の仕組み作り：</strong> Token-gatedコミュニティやオンチェーン投票などを活用し、NFT保有が単なる「所有」で終わらない体験を設計。</li>
+                    <li><strong class="text-blue-700">二次流通時の契約更新の自動化：</strong> NFTが転売された場合でも、新たな保有者との契約関係がスムーズに引き継がれる法的・技術的枠組み（例：ERC721copyright）。</li>
+                </ol>
+            </div>
+
+            <div class="card bg-blue-600 text-white text-center p-6"> <h3 class="text-3xl font-bold mb-3">未来展望：コミュニティ主導のコンテンツ創造へ</h3> <p class="text-xl mb-2">著作権NFTは、「クリエイターが資金を確保しつつ権利を保持」し、「ファンや投資家が作品作りに主体的に関わりながらリターンも得る」という、<strong class="text-amber-300">新しい共創モデル</strong>を可能にします。</p> <p class="text-xl mb-2">マンガ、音楽、ゲーム、映画など、物語や体験を届ける<strong class="text-amber-300">全てのコンテンツ産業</strong>が、この変革の対象となり得ます。</p> <p class="text-2xl font-bold mt-3">今後はWeb3ネイティブなIPの立ち上げが加速し、コンテンツ制作の重心が従来の「製作委員会」から、よりオープンでダイナミックな<strong class="text-amber-300">「コミュニティ」</strong>へと移っていく未来が期待されます。</p> </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center py-6 bg-slate-800 text-slate-300"> <p>&copy; 2025 Yu Numazaki. All rights reserved.</p>
+        <p class="text-sm">著作権NFT インフォグラフィック SPA</p>
+    </footer>
+
+    <script>
+        const nftMarketCtx = document.getElementById('nftMarketChart').getContext('2d');
+        const nftMarketChart = new Chart(nftMarketCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2021年', '2022年', '2023年', '2024年', ['2025年', '(Q1時点)'] ],
+                datasets: [{
+                    label: 'NFT市場 取引量 (億米ドル)',
+                    data: [230, 247, 118, 137, 15],
+                    backgroundColor: [
+                        '#60A5FA', // Blue-400
+                        '#3B82F6', // Blue-500
+                        '#2563EB', // Blue-600
+                        '#1D4ED8', // Blue-700
+                        '#1E3A8A'  // Blue-800
+                    ],
+                    borderColor: '#1E293B', // Slate-800
+                    borderWidth: 1,
+                    borderRadius: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '取引量 (億米ドル)',
+                            font: { size: 14, family: 'Noto Sans JP' },
+                            color: '#475569' // Slate-600
+                        },
+                        grid: {
+                            color: '#E2E8F0' // Slate-200
+                        },
+                        ticks: {
+                             font: { family: 'Noto Sans JP' },
+                             color: '#475569' // Slate-600
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '年',
+                            font: { size: 14, family: 'Noto Sans JP' },
+                            color: '#475569' // Slate-600
+                        },
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                             font: { family: 'Noto Sans JP' },
+                             color: '#475569' // Slate-600
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1E293B', // Slate-800
+                        titleFont: { size: 14, family: 'Noto Sans JP' },
+                        bodyFont: { size: 12, family: 'Noto Sans JP' },
+                        padding: 10,
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            },
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + '億米ドル';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
