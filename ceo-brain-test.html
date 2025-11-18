@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>経営者頭脳5要素診断（250点満点）</title>
+  <style>
+    body { font-family: Meiryo, sans-serif; max-width: 800px; margin: 20px auto; line-height: 1.6; background: #f9f9f9; padding: 20px; }
+    h1, h2 { color: #2c3e50; }
+    .category { font-weight: bold; font-size: 1.3em; color: #e74c3c; margin: 30px 0 15px; }
+    .question { margin: 15px 0; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    select { font-size: 18px; padding: 8px; width: 100%; margin-top: 8px; }
+    button { padding: 18px 40px; font-size: 20px; background: #e74c3c; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 30px auto; display: block; }
+    button:hover { background: #c0392b; }
+    .result { margin-top: 40px; padding: 25px; background: #2c3e50; color: white; border-radius: 12px; font-size: 1.4em; text-align: center; display: none; }
+  </style>
+</head>
+<body>
+  <h1>経営者頭脳5要素診断（250点満点）</h1>
+  <p>各質問に正直に1〜5点で答えてください（5＝完全に当てはまる）</p>
+
+  <form id="quiz">
+
+    <div class="category">1. 認知能力（1-10）</div>
+    <div class="question">1. 100件の情報が来ても、重要度上位3件を30秒以内でほぼ正確に抜き出せる<br><select name="q1"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">2. カジノで負け続けても「次こそ勝てる」とは絶対に思わない<br><select name="q2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">3. グラフや表を一瞥しただけで「ここがおかしい」と違和感を覚える<br><select name="q3"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">4. 確率50%で10億円、50%で0円の賭けを平気で何度も繰り返せる<br><select name="q4"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">5. 過去の類似事例を10個以上即座に脳内で引き出せるテーマが多い<br><select name="q5"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">6. 自分の予測が外れたとき「なぜ外れたか」を1分以内で言語化できる<br><select name="q6"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">7. 複雑な契約書を斜め読みで「最大のリスク箇所」を9割方当てる<br><select name="q7"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">8. 人の話を聞いて「この人は3年後にこうなる」と高確率で当たる<br><select name="q8"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">9. 数字を見た瞬間に「対前年比」「対業界平均」が頭に浮かぶ<br><select name="q9"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">10. 自分の思考の偏りを3つ以上、常に自覚している<br><select name="q10"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+
+    <div class="category">2. 戦略的思考力（11-20）</div>
+    <div class="question">11. 今の事業で「勝てる確率」が30%以下なら即座に撤退を決断できる<br><select name="q11"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">12. 競合が強い市場より、自分が圧倒的1位になれる市場を常に探している<br><select name="q12"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">13. 「効率化」より「そもそもやるべきか」を先に問う癖がある<br><select name="q13"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">14. 10年後の業界地図を今描けて、そこに自分の会社を配置できる<br><select name="q14"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">15. 儲かっていても「このビジネスは5年後に死ぬ」と見切れる<br><select name="q15"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">16. 社員が「これやりましょう！」と言ってきた99%を却下できる<br><select name="q16"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">17. 参入する市場を決める時「誰が一番苦しむ競合か」を必ず考える<br><select name="q17"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">18. 短期利益が出ても長期で負ける選択肢は絶対に選ばない<br><select name="q18"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">19. 「今は負けていい」と思える局面を正確に見極められる<br><select name="q19"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">20. 人生で3回以上「完全に間違った戦場」に気づいて大撤退した経験がある<br><select name="q20"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+
+    <div class="category">3. 人・組織を読む頭の良さ（21-30）</div>
+    <div class="question">21. 初対面30秒で「この人はどこまで伸びるか」の上限がなんとなくわかる<br><select name="q21"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">22. 人の話を聞いて「本音」と「建前」を即座に分離できる<br><select name="q22"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">23. 誰がどのタイミングで裏切るか、だいたい当たる<br><select name="q23"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">24. 履歴書や学歴より「目つき・質問の鋭さ」で人を採る<br><select name="q24"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">25. 「この人は金のためにしか動かない」と見抜ける<br><select name="q25"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">26. 優秀だけど組織を壊す人材を即座に切れる<br><select name="q26"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">27. 人の能力を「今の2倍まで伸ばせるか」「それ以上は無理か」がわかる<br><select name="q27"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">28. 飲み会1回で「この人はNo.2止まり」と確信できる<br><select name="q28"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">29. 部下が言い訳した瞬間に「嘘かどうか」がわかる<br><select name="q29"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">30. 創業メンバー10人のうち、5年後に残る人を8割方当てられる<br><select name="q30"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+
+    <div class="category">4. 学習・忘却の頭の良さ（31-40）</div>
+    <div class="question">31. 過去の成功体験を「もう通用しない」と1年以内で捨てられる<br><select name="q31"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">32. 大失敗した直後に「得られたデータはこれ」と冷静に分析できる<br><select name="q32"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">33. 一度本質を理解したことは10年経っても忘れない<br><select name="q33"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">34. 毎月「自分はこれを勘違いしていた」と気づける<br><select name="q34"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">35. 他社の失敗事例を自分の会社に即座に応用できる<br><select name="q35"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">36. 読んだ本の9割は1年以内に「古くなった」と判断して捨てる<br><select name="q36"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">37. 失敗を「恥」ではなく「高額な授業料」としか思わない<br><select name="q37"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">38. 自分の思考フレームを3年ごとに1回は全取っ替えできる<br><select name="q38"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">39. 週に1回以上「自分の常識が崩れる」体験をしている<br><select name="q39"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">40. 過去の自分を今見ると「バカすぎて笑える」と思える<br><select name="q40"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+
+    <div class="category">5. 感情・本能の頭の良さ（41-50）</div>
+    <div class="question">41. 「なんかヤバい」という直感が9割方当たる<br><select name="q41"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">42. 恐怖を感じるべき場面で適切にビビれる<br><select name="q42"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">43. 調子がいい時にこそ「そろそろ終わる」と警戒できる<br><select name="q43"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">44. 自分の感情を「今は怒りを抑える」「今は恐怖を煽す」と操作できる<br><select name="q44"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">45. 大金が動く場面でも心拍数がほとんど上がらない<br><select name="q45"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">46. 社員が浮かれている時に「水を差す」役割を平気でできる<br><select name="q46"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">47. 動物的な嗅覚で「この人は危険」と感じたら即距離を取る<br><select name="q47"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">48. 絶望的な状況でも「まだ30%は勝ち筋がある」と冷静に思える<br><select name="q48"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">49. 自分の感情のパターンを完全に把握している<br><select name="q49"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+    <div class="question">50. 人生で「直感に従って大正解だった」経験が5回以上ある<br><select name="q50"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+
+  </form>
+
+  <button type="button" onclick="calculate()">診断する</button>
+
+  <div id="result" class="result"></div>
+
+  <script>
+    function calculate() {
+      let total = 0;
+      let scores = [0,0,0,0,0]; // 各要素の合計
+
+      for(let i=1; i<=50; i++){
+        let val = parseInt(document.querySelector(`select[name=q${i}]`).value);
+        total += val;
+
+        if(i<=10) scores[0] += val;
+        else if(i<=20) scores[1] += val;
+        else if(i<=30) scores[2] += val;
+        else if(i<=40) scores[3] += val;
+        else scores[4] += val;
+      }
+
+      let msg = `<strong>総合点：${total}点 / 250点</strong><br><br>`;
+      if(total >= 215) msg += `【怪物級】すでに別次元の経営者脳。あなたは危険人物です`;
+      else if(total >= 190) msg += `【超一級】ほぼ確実に大物経営者になれるレベル`;
+      else if(total >= 165) msg += `【一級】鍛えれば東証プライム級も狙える`;
+      else if(total >= 140) msg += `【準一級】中小企業なら十分勝てるレベル`;
+      else if(total >= 115) msg += `【平均的優秀層】経営はまだ厳しいかも`;
+      else msg += `【サラリーマン脳】根本から変革必須`;
+
+      msg += `<br><br><strong>【5要素内訳】</strong><br>
+        1. 認知能力：${scores[0]}/50<br>
+        2. 戦略的思考力：${scores[1]}/50<br>
+        3. 人・組織を読む力：${scores[2]}/50<br>
+        4. 学習・忘却の力：${scores[3]}/50<br>
+        5. 感情・本能の力：${scores[4]}/50<br><br>
+        → 一番低い要素を今すぐ集中強化してください。2-3年で別人になります。`;
+
+      document.getElementById('result').innerHTML = msg;
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('result').scrollIntoView({behavior: "smooth"});
+    }
+  </script>
+</body>
+</html>
